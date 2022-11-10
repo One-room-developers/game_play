@@ -1,7 +1,7 @@
 window.onload =  main;
 
 function main(){
-    setTimeout(function(){typing_episode()}, 5000);
+    setTimeout(function(){typing_episode()}, 3000);
   };
 
 function typing_episode(){
