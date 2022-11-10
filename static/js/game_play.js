@@ -97,4 +97,3 @@ function typing_episode(){
   }
 }
   
-  
