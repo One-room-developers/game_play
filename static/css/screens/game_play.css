@@ -26,7 +26,13 @@
     border-bottom :5px solid var(--main-blue);
     border-radius: 1%;
     overflow: overlay;
+    -ms-overflow-style: none;
 }
+
+/* 스크롤바 제거 */
+.text_view::-webkit-scrollbar{
+    display:none;
+  }
 
 .text_view-headder{
     grid-row: 1/1;
@@ -41,9 +47,6 @@
     padding: 0% 20px;
 }
 
-.text_view-footer{
-
-}
 
 .episode_number{
     grid-column: 1/1;
@@ -70,6 +73,37 @@
     text-align: left;
 }
 
+.episode_option{
+    padding-top: 100px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width : 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.option_div{
+    width : 100%;
+    padding : 5px 5px;
+    margin: 5px 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+@keyframes hover_line {
+    0% {  
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+    100% { 
+        border-bottom: 1px solid rgb(187, 50, 32); 
+        /* 아무 색깔 사용함 */
+    }
+}
+
+.option_div:hover{
+    animation: hover_line 0.3s ease-in-out forwards; 
+}
 .game_play-main_ui{
 
 }
@@ -80,4 +114,8 @@
 
 .game_play-right_ui{
 
+}
+
+.hidden{
+    display : none;
 }
