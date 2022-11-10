@@ -32,6 +32,7 @@
     border-radius: 1%;
     overflow: overlay;
     -ms-overflow-style: none;
+    line-height: 30px;
 }
 
 /* 스크롤바 제거 */
@@ -73,7 +74,6 @@
 
 .episode_text{
     width: 100%;
-    line-height: 30px;
     text-align: left;
 }
 
@@ -87,6 +87,28 @@
     flex-direction: column;
 }
 
+.episode_result_text{
+    text-align: center;
+}
+
+.episode_result_option{
+    padding-top: 100px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width : 100%;
+}
+
+.result_div{
+    width : 100%;
+    height: auto;
+    padding : 5px 5px;
+    margin: 10px 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
 .option_div{
     width : 100%;
     height: auto;
@@ -94,7 +116,6 @@
     margin: 10px 0px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
-
     cursor: pointer;
 }
 

@@ -10,6 +10,8 @@ function typing_episode(){
   var text_view = document.querySelector('.text_view');
   var main_text_view = document.querySelector('.text_view-main')
   var option_class = document.querySelector('.episode_option');
+  var result_text_class = document.querySelector('.episode_result_text')
+  var result_option_class = document.querySelector('.episode_result_option')
   var input_text = ["\t얼음이 가득한 북부. 차게 핀 서리눈꽃이 숨죽여 떨어지는 곳."+ 
                   "\t거탑 2층의 외진 도시 테오존에서 당신은 태어났다.\n"+
                   "\t이곳의 사람들은 항상 굶주려있다. "+
@@ -38,13 +40,13 @@ function typing_episode(){
   ];
 
   var input_result = [
-      ["당신은 사투 끝에 블브를 죽이는데 성공했다. 하지만 남은 것은 상처뿐이었다. hp를 1 잃었다.", 
+      ["\t당신은 사투 끝에 블브를 죽이는데 성공했다. 하지만 남은 것은 상처뿐이었다. \n\thp를 1 잃었다.", 
 
-      "당신은 전력을 다해 도망쳤으나, 인간의 두 다리로 블브를 따돌리기란 어불성설이었다. 마을에 도달했을 때, 당신은 이미 상처투성이었다. hp를 2 잃었다.",
+      "\t당신은 전력을 다해 도망쳤으나, 인간의 두 다리로 블브를 따돌리기란 어불성설이었다. 마을에 도달했을 때, 당신은 이미 상처투성이었다. \n\thp를 2 잃었다.",
 
-      "당신은 모습을 들어내지 않았다. 수풀에 몸을 숨긴 채 블브가 다가오길 기다렸다. 블브가 지척까지 다가왔을 때 당신은 고함을 질렀다."+
-      "청력이 좋은 블브는 귀가 찢어지는 듯한 통증을 느끼며 깜짝 놀라 달아났다. 녀석이 있었던 자리엔 작은 금화 주머니 하나가 놓여져 있었다."+
-      "당신은 주머니를 소매에 챙겼다. 금화를 5개 얻었다."
+      "\t당신은 모습을 들어내지 않았다. 수풀에 몸을 숨긴 채 블브가 다가오길 기다렸다. 블브가 지척까지 다가왔을 때 당신은 고함을 질렀다."+
+      "\t청력이 좋은 블브는 귀가 찢어지는 듯한 통증을 느끼며 깜짝 놀라 달아났다. 녀석이 있었던 자리엔 작은 금화 주머니 하나가 놓여져 있었다."+
+      "\t당신은 주머니를 소매에 챙겼다. \n\t금화를 5개 얻었다."
     ]
   ]
 
@@ -55,14 +57,17 @@ function typing_episode(){
   var height_multiple = 1;
   var typingBool = false;
   var main_text_view_basic_size = main_text_view.clientHeight;
+  var tyInt;
 
   split_txt = input_text[0].split(""); // 한글자씩 잘라 배열로 저장한다.
   text_view.addEventListener("click", function(){click = true});
   
+
   if(typingBool == false) {
     // 타이핑이 진행되지 않았다면
     typingBool = true;
-    var tyInt = setInterval(typing , 5);
+    
+    setTimeout(function(){tyInt = setInterval(typing , 30)},1500);
   }
 
   function typing(){
@@ -85,7 +90,7 @@ function typing_episode(){
         else{
           if(split_txt[typingIdx] === "\n"){
             episode_text.innerHTML += "<br><br>"
-            hot_point = 3; //온점이 나오면 2번의 반복 기간동안 쉼
+            hot_point = 20; //온점이 나오면 2번의 반복 기간동안 쉼
           }
           else if(split_txt[typingIdx] === "\t"){
             episode_text.innerHTML += "&nbsp;"
@@ -119,19 +124,34 @@ function typing_episode(){
   }
 
   function option_on(){
-    optionDiv = [];
+    var optionDiv = [];
     option_class.classList.remove("hidden");
     for(i=0; i<input_option[index].length; i++){
       optionDiv[i] = document.createElement('div');
       optionDiv[i].className = "option_div"
+      optionDiv[i].id = `${i}`;
       optionDiv[i].innerText = input_option[index][i];
-      // optionDiv[i].addEventListener('click', )
+      optionDiv[i].addEventListener('click', (e)=>{click_option(e.target.id)});
       option_class.appendChild(optionDiv[i]);
     }
   }
 
-  function click_option(){
+  function click_option(i){
+    var resultDiv;
+    result_text_class.classList.remove("hidden");
+    result_option_class.classList.remove("hidden");
+    input_result[index][i] = input_result[index][i].replace(/\t/g, "&nbsp;");
+    input_result[index][i] = input_result[index][i].replace(/\n/g, "<br><br>.<br><br>");
+    result_text_class.innerHTML += "<br>" + input_result[index][i];
 
+    resultDiv = document.createElement('div');
+    resultDiv.className = "result_div font-game-thick"
+    resultDiv.innerText += "다음으로 . . .";
+    result_option_class.appendChild(resultDiv);
+
+    result_text_class.style.height = `${(text_view.clientHeight)-(result_option_class.clientHeight)}px`;
+    moveScrollBottom();
+    height_multiple++;
   }
 }
   
