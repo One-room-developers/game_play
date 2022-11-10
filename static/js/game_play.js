@@ -1,7 +1,7 @@
 window.onload =  main;
 
 function main(){
-      typing_episode()
+    setTimeout(function(){typing_episode()}, 5000);
   };
 
 function typing_episode(){
@@ -67,7 +67,7 @@ function typing_episode(){
     // 타이핑이 진행되지 않았다면
     typingBool = true;
     
-    setTimeout(function(){tyInt = setInterval(typing , 30)},1500);
+    tyInt = setInterval(typing , 20);
   }
 
   function typing(){
@@ -102,6 +102,7 @@ function typing_episode(){
           
           if(text_view.clientHeight*height_multiple < episode_text.clientHeight + document.querySelector(".text_view-header").clientHeight){
             episode_text.innerText = episode_text.innerText.slice(0,-1);
+            console.log("size : "+text_view.clientHeight*height_multiple + main_text_view_basic_size);
             main_text_view.style.height = `${(text_view.clientHeight*height_multiple + main_text_view_basic_size) }px`;
             moveScrollBottom();
             hot_point = 30;
