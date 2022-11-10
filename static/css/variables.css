@@ -1,0 +1,7 @@
+:root{ /*문서 트리의 루트 요소를 선택. html 선택자와 똑같다.*/
+    --main-dark:rgb(34, 40, 49);
+    --main-gray:rgb(57, 62, 70);
+    --main-blue:rgb(0, 173, 181);
+    --main-orange:rgb(251,157,52);
+    --main-white:rgb(238, 238, 238);
+}

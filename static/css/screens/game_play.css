@@ -1,0 +1,83 @@
+.game_play-main{
+    height : 100vh;
+    display: flex;
+    flex-direction: column;
+    padding : 5vh 0%;
+    align-items: center;
+    background-color: var(--main-white);
+    
+}
+
+.episode_logo{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border: 2px solid var(--main-blue);
+    margin-bottom: 3vh;
+}
+
+.text_view{
+    width: 50%;
+    min-width: 600px;
+    height: 60vh;
+    display: grid;
+    grid-template-rows: 30% 70%;
+    border-top : 5px solid var(--main-blue);
+    border-bottom :5px solid var(--main-blue);
+    border-radius: 1%;
+    overflow: overlay;
+}
+
+.text_view-headder{
+    grid-row: 1/1;
+    width: 100%;
+    display: grid;
+    grid-template-columns : repeat(5, 20%);
+}
+
+.text_view-main{
+    grid-row: 2/2;
+    width: 100%;
+    padding: 0% 20px;
+}
+
+.text_view-footer{
+
+}
+
+.episode_number{
+    grid-column: 1/1;
+    padding-top: 10px;
+}
+
+.episode_number_text{
+    padding: 10px;
+}
+
+.episode_name{
+    text-align: center;
+    grid-column : 2/5;
+    font-size: max(2vw,30px);
+    padding-top: max(2vw,30px);
+    padding-bottom: max(4vw,50px);
+}
+
+
+.episode_text{
+    width: 100%;
+    line-height: 30px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.game_play-main_ui{
+
+}
+
+.game_play-left_ui{
+
+}
+
+.game_play-right_ui{
+
+}

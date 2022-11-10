@@ -1,0 +1,16 @@
+@import "reset.css"; /*모든 속성값 reset*/
+@import "variables.css"; /*변수(색)을 저장해둠*/
+
+/*components*/
+@import "components/font.css"; /*폰트 적용*/
+
+/*screens*/
+@import "screens/game_play.css";
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--main-white);
+}
