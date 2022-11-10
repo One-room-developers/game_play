@@ -9,22 +9,63 @@
     flex-direction: column;
     padding : 5vh 0%;
     align-items: center;
+    justify-content: center;
     background-color: var(--main-white);
     
 }
 
+@keyframes logo-opacity{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
 .episode_logo{
     width: 100px;
     height: 100px;
+    opacity: 0;
     border-radius: 100%;
     border: 2px solid var(--main-gray);
-    margin-bottom: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: logo-opacity 0.3s forwards;
+    animation-delay: 0.5s;
+}
+.episode_logo_line{
+    height: 3vh;
+    border: 1px solid var(--main-gray);
+    animation: logo-opacity 0.3s forwards;
+    opacity: 0;
+    animation-delay: 0.5s;
+}
+
+@keyframes text-view-appear{
+    0%{
+        opacity: 0;
+        height: 0vh;
+    }
+    33%{
+        opacity: 1;
+        height: 0vh;
+    }
+    50%{
+        opacity: 1;
+        height: 0vh;
+    }
+    100%{
+        opacity: 1;
+        height: 60vh;
+    }
 }
 
 .text_view{
-    width: 50%;
+    width: 70%;
     min-width: 600px;
-    height: 60vh;
+    height: 0vh;
+    opacity: 0;
     display: grid;
     grid-template-rows: 30% 70%;
     border-top : 5px solid var(--main-gray);
@@ -32,7 +73,8 @@
     border-radius: 1%;
     overflow: overlay;
     -ms-overflow-style: none;
-    line-height: 30px;
+    animation: text-view-appear 1.3s ease-in forwards;
+    animation-delay: 0.3s;
 }
 
 /* 스크롤바 제거 */
@@ -133,11 +175,53 @@
     animation: hover_line 0.3s forwards; 
 }
 .game_play-main_ui{
-
+    opacity: 0;
+    animation: logo-opacity 0.3s forwards;
+    animation-delay: 0.3s;
+    width: 70%;
+    margin-top: 3vh;
+    height: 8vh;
+    border-radius: 1vh;
+    border: 2px solid var(--main-dark);
+    background-color: var(--main-white);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .game_play-left_ui{
     width: 25vw;
+}
+
+@keyframes ui-btn-hover{
+    0%{
+        background-position: 100% 0%;
+        color: var(--main-dark);
+    }
+    100%{
+        background-position: 0% 0%;
+        color: var(--main-orange);
+        text-shadow: 0px 0px 1px var(--main-white);
+
+    }
+}
+.main-ui-btn{
+    width: 6vw;
+    height: 4vh;
+    background-color: var(--main-white);
+    border: 1.5px solid var(--main-gray);
+    font-size: 0.8vw;
+    font-weight: 600;
+    
+    background: linear-gradient(-70deg, var(--main-white) 0%,var(--main-white) 50%, var(--main-dark) 50%, var(--main-dark) 100%);
+    background-size: 250% 100%;
+    background-position: 100% 0%;
+    color: var(--main-dark);
+}
+.main-ui-btn:hover{
+    cursor: pointer;
+    animation: ui-btn-hover 0.3s ease-in-out forwards;
+    color: var(--main-orange);
 }
 
 .game_play-right_ui{
@@ -146,4 +230,9 @@
 
 .hidden{
     display : none;
+}
+
+.icon-book{
+    width: 45px;
+    height: 45px;
 }
