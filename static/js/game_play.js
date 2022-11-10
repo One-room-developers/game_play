@@ -38,14 +38,14 @@ function typing_episode(){
   ];
 
   var input_result = [
-    ["당신은 사투 끝에 블브를 죽이는데 성공했다. 하지만 남은 것은 상처뿐이었다. hp를 1 잃었다.", 
+      ["당신은 사투 끝에 블브를 죽이는데 성공했다. 하지만 남은 것은 상처뿐이었다. hp를 1 잃었다.", 
 
-    "당신은 전력을 다해 도망쳤으나, 인간의 두 다리로 블브를 따돌리기란 어불성설이었다. 마을에 도달했을 때, 당신은 이미 상처투성이었다. hp를 2 잃었다.",
+      "당신은 전력을 다해 도망쳤으나, 인간의 두 다리로 블브를 따돌리기란 어불성설이었다. 마을에 도달했을 때, 당신은 이미 상처투성이었다. hp를 2 잃었다.",
 
-    "당신은 모습을 들어내지 않았다. 수풀에 몸을 숨긴 채 블브가 다가오길 기다렸다. 블브가 지척까지 다가왔을 때 당신은 고함을 질렀다."+
-    "청력이 좋은 블브는 귀가 찢어지는 듯한 통증을 느끼며 깜짝 놀라 달아났다. 녀석이 있었던 자리엔 작은 금화 주머니 하나가 놓여져 있었다."+
-    "당신은 주머니를 소매에 챙겼다. 금화를 5개 얻었다."
-  ]
+      "당신은 모습을 들어내지 않았다. 수풀에 몸을 숨긴 채 블브가 다가오길 기다렸다. 블브가 지척까지 다가왔을 때 당신은 고함을 질렀다."+
+      "청력이 좋은 블브는 귀가 찢어지는 듯한 통증을 느끼며 깜짝 놀라 달아났다. 녀석이 있었던 자리엔 작은 금화 주머니 하나가 놓여져 있었다."+
+      "당신은 주머니를 소매에 챙겼다. 금화를 5개 얻었다."
+    ]
   ]
 
   var split_txt;
@@ -95,8 +95,6 @@ function typing_episode(){
           }
           typingIdx++;
           
-          // if(((height_multiple === 1) && (episode_text.clientHeight > document.querySelector(".text_view-main").clientHeight))||
-          // (height_multiple !== 1) && (text_view.scrollHeight > episode_text.clientHeight + document.querySelector(".text_view-header").clientHeight)){
           if(text_view.clientHeight*height_multiple < episode_text.clientHeight + document.querySelector(".text_view-header").clientHeight){
             episode_text.innerText = episode_text.innerText.slice(0,-1);
             main_text_view.style.height = `${(text_view.clientHeight*height_multiple + main_text_view_basic_size) }px`;
